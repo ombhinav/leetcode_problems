@@ -22,7 +22,7 @@ public:
         int vis[numCourses];
         int dfsvis[numCourses];
         vector<vector<int>> adj(numCourses);
-        for (const auto& pair : prerequisites) {
+        for (auto pair : prerequisites) {
             adj[pair[1]].push_back(pair[0]);
         }
         memset(vis,0,sizeof(vis));
