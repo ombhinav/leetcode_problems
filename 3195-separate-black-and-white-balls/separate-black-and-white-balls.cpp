@@ -6,10 +6,10 @@ public:
         int right = n-1;
         long long cnt = 0;
         while(left<right){
-            while(s[left] == '0' && left < n){
+            while(left < n && s[left] == '0' ){
                 left++;
             }
-            while(s[right] == '1' && right >0){
+            while(right >0 && s[right] == '1' ){
                 right--;
             }
             if(left>right){
