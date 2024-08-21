@@ -1,11 +1,11 @@
 class Solution {
 public:
     string reverseWords(string s) {
+        int n = s.size();
+        int i =0;
         string result ="";
-        int n = s.length();
-        int i = 0;
         while(i<n){
-            while(i<n && s[i] == ' '){
+            while(i<n && s[i]==' '){
                 i++;
             }
             if(i>=n){
@@ -15,15 +15,15 @@ public:
             while(j<n && s[j] != ' '){
                 j++;
             }
-            string sub = s.substr(i,j-i);
-            if(result.length() == 0){
-                result = sub;
+            string word = s.substr(i,j-i);
+            if(result.length()==0){
+                result = word;
             }
             else{
-                result = sub + " " + result;
+                result = word+" "+result;
             }
-            i = j+1;
+            i = j +1;
         }
-        return result; 
+        return result;
     }
 };
