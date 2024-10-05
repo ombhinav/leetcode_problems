@@ -116,40 +116,39 @@ public:
         //         matrix[i][0] = 0;
         //     }
         // }
-    // }
-    void setRowZero(int i, int m, vector<vector<int>>& matrix){
-        for(int j=0;j<m;j++){
-            if(matrix[i][j] != 0){
-                matrix[i][j] = -11;
-            }
-        }
-    }
-    void setColZero(int j, int n, vector<vector<int>>& matrix ){
-        for(int i=0;i<n;i++){
-            if(matrix[i][j] != 0){
-                matrix[i][j] = -11;
-            }
-        }
-    }
+    
     void setZeroes(vector<vector<int>>& matrix) {
         int n = matrix.size();
         int m = matrix[0].size();
+        int row_arr[n];
+        int col_arr[m];
+        memset(row_arr, 0, sizeof(row_arr));
+        memset(col_arr, 0, sizeof(col_arr));
         for(int i=0;i<n;i++){
             for(int j = 0;j<m;j++){
                 if(matrix[i][j] == 0){
-                    setRowZero(i,m,matrix);
-                    setColZero(j,n,matrix);
+                    row_arr[i]=1;
+                    col_arr[j]=1;
                 }
             }
         }
 
         for(int i=0;i<n;i++){
-            for(int j =0;j<m;j++){
-                if(matrix[i][j]==-11){
+            if(row_arr[i] == 1){
+                for(int j=0;j<m;j++){
                     matrix[i][j] = 0;
                 }
             }
         }
+        for(int j=0;j<m;j++){
+            if(col_arr[j] == 1){
+                for(int i=0;i<n;i++){
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        
 
         return;
 
