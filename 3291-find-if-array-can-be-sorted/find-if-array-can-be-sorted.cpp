@@ -5,7 +5,6 @@ public:
         vector<int>original(nums);
         sort(original.begin(),original.end());
 
-        int n = __builtin_popcount(8);
         for(int i=0;i<nums.size();i++){
 
             for(int i=0;i<nums.size()-1;i++){
